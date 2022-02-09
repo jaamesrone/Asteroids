@@ -40,10 +40,16 @@ public class PlayerShip : MonoBehaviour
         transform.localPosition += Time.deltaTime * (new Vector3(moveVal.x, moveVal.y, 0) * speed);
         this.transform.Rotate(new Vector3(0.0f, DeltaPointer.x, 0f), Space.World);
         this.transform.Rotate(new Vector3(-DeltaPointer.y, 0.0f, 0f), Space.Self);
-        
+        if(Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
 
+    }
 
-
+    public void Shoot()
+    {
+    Instantiate(Ball,ShootPoint.position,ShootPoint.rotation);
     }
 
 
@@ -53,10 +59,6 @@ public class PlayerShip : MonoBehaviour
         DeltaPointer = Value.Get<Vector2>();
     }
 
-    public void OnFire(InputValue Value)
-    {
-        Fire = Value.Get<Vector2>();
-    }
 
     public void OnMove(InputValue Value)//new movement input
     {

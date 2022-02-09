@@ -233,7 +233,6 @@ GameObject:
   m_Component:
   - component: {fileID: 494976}
   - component: {fileID: 5444550}
-  - component: {fileID: 11425652}
   - component: {fileID: 6788503996706718989}
   - component: {fileID: 3894213654177271934}
   - component: {fileID: 1405294065171278999}
@@ -275,19 +274,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11425652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a718c138b20419b499c3d92b17e6ff7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tumble: 0.25
 --- !u!114 &6788503996706718989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bd19b9d2ba1154e9a4a96bdadba663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tumble: 0.25
 --- !u!135 &3894213654177271934
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -308,7 +295,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151664}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.76
