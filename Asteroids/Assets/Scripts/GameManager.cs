@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private PlayerShip player;
-    private static GameManager _instance;
-    public static SomeClass Instance { get { return _instance; } }
+    public TextMeshProUGUI scoreUI;
+    public static GameManager _instance;
+    
 
+    public int score;
+
+
+   
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
    
@@ -30,11 +35,14 @@ public class GameManager : MonoBehaviour
     {
         
     }
-        private void OnTriggerEnter(Collider other)
+
+     
+    
+
+    public void AddScore()
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Player.transform.position = playerSpawnPoint.position;
-        }
+        score++;
+        scoreUI.text = "Score: " + score.ToString();
     }
+       
 }

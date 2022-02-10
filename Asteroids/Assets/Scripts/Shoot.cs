@@ -8,13 +8,12 @@ public class Shoot : MonoBehaviour
 public float speed;
 public Rigidbody rb;
 public TextMeshProUGUI scoreUI;
-public int score;
+private int score;
 
 
 void Start()
 {
     rb.velocity = transform.up * speed;
-    score = 0;
 }
      
 
@@ -23,20 +22,14 @@ void Start()
       
     }
 
-    private void DisplayScoreUI()
-    {
-     scoreUI.text = "Score: " + score.ToString();
-    }
-
+ 
      private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("im i hitting");
-             Destroy(other.gameObject);
-             score++;
-             DisplayScoreUI();
-            
+            Destroy(other.gameObject);
+            GameManager._instance.AddScore();
         }
     }
     

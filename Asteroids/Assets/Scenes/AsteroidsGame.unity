@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b13b1c59c522f84fa4ba974a7dc057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreUI: {fileID: 1197901717}
+  score: 0
 --- !u!4 &201591255
 Transform:
   m_ObjectHideFlags: 0
@@ -383,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2705286137011316497, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.001
+      value: -0.0009999871
       objectReference: {fileID: 0}
     - target: {fileID: 2705286137011316497, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -399,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2705286137011316497, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2705286137011316497, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_LocalRotation.y
@@ -407,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2705286137011316497, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2705286137011316497, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -561,7 +563,7 @@ GameObject:
   - component: {fileID: 1161957199}
   - component: {fileID: 1161957198}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1037,7 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3452d63a04fa9547a2dd4b11fb7863e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSpeed: 0.3
+  lookSpeed: 0.24
   moveVal: {x: 0, y: 0}
   speed: 3
   rb: {fileID: 1973745740}
@@ -1045,7 +1047,7 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 890504328}
   Player: {fileID: 1973745738}
   ShootPoint: {fileID: 1791753320}
-  Ball: {fileID: 8604662371420837512, guid: ea18b9db4104b3b4c8cbcd26bada7153, type: 3}
+  Ball: {fileID: 2694175073312433020, guid: ea18b9db4104b3b4c8cbcd26bada7153, type: 3}
 --- !u!65 &1973745742
 BoxCollider:
   m_ObjectHideFlags: 0

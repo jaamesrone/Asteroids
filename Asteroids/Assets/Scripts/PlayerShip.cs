@@ -17,6 +17,7 @@ public class PlayerShip : MonoBehaviour
     public Transform ShootPoint;
     public GameObject Ball;
     Vector2 Fire;
+    
 
     // Start is called before the first frame update
 
@@ -25,7 +26,7 @@ public class PlayerShip : MonoBehaviour
     {
         PlayerControls = new InputAction();
         PlayerControls.Enable();
-        rb = GetComponent<Rigidbody>();     
+        rb = GetComponent<Rigidbody>();
     }
 
 
@@ -38,9 +39,9 @@ public class PlayerShip : MonoBehaviour
     void Update()
     {
         transform.localPosition += Time.deltaTime * (new Vector3(moveVal.x, moveVal.y, 0) * speed);
-        this.transform.Rotate(new Vector3(0.0f, DeltaPointer.x, 0f), Space.World);
-        this.transform.Rotate(new Vector3(-DeltaPointer.y, 0.0f, 0f), Space.Self);
-        if(Input.GetButtonDown("Fire1"))
+        this.transform.Rotate(new Vector3(0.0f, DeltaPointer.x, 0f) * lookSpeed, Space.World);
+        this.transform.Rotate(new Vector3(-DeltaPointer.y, 0.0f, 0f) * lookSpeed, Space.Self);
+        if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
@@ -49,7 +50,9 @@ public class PlayerShip : MonoBehaviour
 
     public void Shoot()
     {
-    Instantiate(Ball,ShootPoint.position,ShootPoint.rotation);
+        Instantiate(Ball, ShootPoint.position, ShootPoint.rotation);
+        
+        
     }
 
 
@@ -74,4 +77,5 @@ public class PlayerShip : MonoBehaviour
             Player.transform.position = playerSpawnPoint.position;
         }
     }
+
 }
