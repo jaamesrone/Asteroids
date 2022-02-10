@@ -5,44 +5,36 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreUI;
-    public static GameManager _instance;
-    
-
     public int score;
+    public TextMeshProUGUI scoreText;
 
+    public static GameManager Instance;
 
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-   
     private void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        } else {
-            _instance = this;
-        }
+       Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
+        score = 0;
+        scoreText.text = "Score : " + score.ToString();
     }
 
-     
-    
-
-    public void AddScore()
+    public void SmallScore()
     {
-        score++;
-        scoreUI.text = "Score: " + score.ToString();
+        score += 75;
+        scoreText.text = "Score : " + score.ToString();
     }
-       
+    public void MediumScore()
+    {
+        score += 25;
+        scoreText.text = "Score : " + score.ToString();
+    }
+    public void LargeScore()
+    {
+        score += 10;
+        scoreText.text = "Score : " + score.ToString();
+
+    }
 }

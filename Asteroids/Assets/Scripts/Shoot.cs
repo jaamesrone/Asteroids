@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Shoot : MonoBehaviour
 {
 public float speed;
 public Rigidbody rb;
-public TextMeshProUGUI scoreUI;
-private int score;
+    public int score;
 
 
 void Start()
@@ -25,11 +23,26 @@ void Start()
  
      private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Small")
         {
             Debug.Log("im i hitting");
             Destroy(other.gameObject);
-            GameManager._instance.AddScore();
+            score += 50;
+            GameManager.Instance.SmallScore();
+        }
+        if (other.gameObject.tag == "Medium")
+        {
+            Debug.Log("im i hitting");
+            Destroy(other.gameObject);
+            score += 25;
+            GameManager.Instance.MediumScore();
+        }
+        if (other.gameObject.tag == "Large")
+        {
+            Debug.Log("im i hitting");
+            Destroy(other.gameObject);
+            score += 10;
+            GameManager.Instance.LargeScore();
         }
     }
     

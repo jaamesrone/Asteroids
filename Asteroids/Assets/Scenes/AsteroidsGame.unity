@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b13b1c59c522f84fa4ba974a7dc057a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreUI: {fileID: 1197901717}
   score: 0
+  scoreText: {fileID: 1197901717}
 --- !u!4 &201591255
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,15 +1039,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3452d63a04fa9547a2dd4b11fb7863e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSpeed: 0.24
+  lookSpeed: 0.1
   moveVal: {x: 0, y: 0}
   speed: 3
   rb: {fileID: 1973745740}
   lives: 0
-  playerSpawnPoint: {fileID: 890504328}
-  Player: {fileID: 1973745738}
+  playerSpawnPoint: {fileID: 0}
+  Player: {fileID: 0}
   ShootPoint: {fileID: 1791753320}
-  Ball: {fileID: 2694175073312433020, guid: ea18b9db4104b3b4c8cbcd26bada7153, type: 3}
+  Ball: {fileID: 2778344525766391415, guid: d9c1b051faf91d84a8ac65297277a25a, type: 3}
+  thrustSpeed: 5
+  thrustInput:
+    m_Name: Thrust Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: fb339c5c-e115-480e-8660-5b90ff86c9fa
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1019ed7c-e70f-4e41-bac0-1b49291b3813
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Thrust Input
+      m_Flags: 0
+    m_Flags: 0
+  turnInput:
+    m_Name: Turn Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2dff8773-342d-439e-8ba8-35600e0bcae7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 61eef027-17e7-4a78-bc4d-584deed0734c
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Turn Input
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 7928894a-714d-48e6-912d-246f2d429cfd
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Turn Input
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 9c880031-ff6a-4bd8-88ae-4ac98c201aee
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Turn Input
+      m_Flags: 8
+    m_Flags: 0
+  shootInput:
+    m_Name: Shoot Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0a74ff0e-a0df-416a-b302-6ee6fcbf5a1f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2e36fe5b-3714-49e1-bcb3-d735d3afc1a6
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot Input
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9be12f7e-621f-40a8-b6ff-da8cdd4250df
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot Input
+      m_Flags: 0
+    m_Flags: 0
+  turnDirection: 5
 --- !u!65 &1973745742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1056,7 +1133,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973745738}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.86484116, y: 0.32853347, z: 1.3358217}

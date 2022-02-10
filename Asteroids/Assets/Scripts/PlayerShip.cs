@@ -17,8 +17,16 @@ public class PlayerShip : MonoBehaviour
     public Transform ShootPoint;
     public GameObject Ball;
     Vector2 Fire;
-    
+    private bool thrusting;
+    public float thrustSpeed;
 
+
+
+
+    public InputAction thrustInput;
+    public InputAction turnInput;
+    public InputAction shootInput;
+    public float turnDirection;
     // Start is called before the first frame update
 
     // Start is called before the first frame update
@@ -32,20 +40,41 @@ public class PlayerShip : MonoBehaviour
 
     void Start()
     {
-        lives = 3;
+        thrustInput.Enable();
+        turnInput.Enable();
+        shootInput.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition += Time.deltaTime * (new Vector3(moveVal.x, moveVal.y, 0) * speed);
-        this.transform.Rotate(new Vector3(0.0f, DeltaPointer.x, 0f) * lookSpeed, Space.World);
-        this.transform.Rotate(new Vector3(-DeltaPointer.y, 0.0f, 0f) * lookSpeed, Space.Self);
-        if (Input.GetButtonDown("Fire1"))
+        thrusting = thrustInput.IsPressed();
+        turnDirection = turnInput.ReadValue<float>();
+
+        if (shootInput.triggered)
         {
             Shoot();
         }
 
+
+
+
+        transform.localPosition += Time.deltaTime * (new Vector3(moveVal.x, moveVal.y, 0) * speed);
+
+
+        this.transform.Rotate(new Vector3(0.0f, DeltaPointer.x, 0f) * lookSpeed, Space.World);
+        this.transform.Rotate(new Vector3(-DeltaPointer.y, 0.0f, 0f) * lookSpeed, Space.Self);
+
+    }
+
+    private void FixedUpdate()
+    {
+        
+        if (thrusting)
+        {
+            rb.AddForce(this.transform.forward * thrustSpeed);
+        }
+        
     }
 
     public void Shoot()
