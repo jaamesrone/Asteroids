@@ -11,7 +11,7 @@ public Rigidbody rb;
 
 void Start()
 {
-    rb.velocity = transform.up * speed;
+    rb.velocity = transform.forward * speed;
 }
      
 

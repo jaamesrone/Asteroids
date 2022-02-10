@@ -12,12 +12,13 @@ public class PlayerShip : MonoBehaviour
     public Rigidbody rb;
     private InputAction PlayerControls;
     public int lives;
-    public Transform playerSpawnPoint;
-    public GameObject Player;
+    
+    
     public Transform ShootPoint;
     public GameObject Ball;
     Vector2 Fire;
     private bool thrusting;
+    private bool turning;
     public float thrustSpeed;
 
 
@@ -26,7 +27,8 @@ public class PlayerShip : MonoBehaviour
     public InputAction thrustInput;
     public InputAction turnInput;
     public InputAction shootInput;
-    public float turnDirection;
+    private float turnDirection = 5.0f;
+    public float turnSpeed = 1.0f;
     // Start is called before the first frame update
 
     // Start is called before the first frame update
@@ -34,12 +36,12 @@ public class PlayerShip : MonoBehaviour
     {
         PlayerControls = new InputAction();
         PlayerControls.Enable();
-        rb = GetComponent<Rigidbody>();
     }
 
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         thrustInput.Enable();
         turnInput.Enable();
         shootInput.Enable();
@@ -49,22 +51,13 @@ public class PlayerShip : MonoBehaviour
     void Update()
     {
         thrusting = thrustInput.IsPressed();
+        turning = turnInput.IsPressed();
         turnDirection = turnInput.ReadValue<float>();
 
         if (shootInput.triggered)
         {
             Shoot();
         }
-
-
-
-
-        transform.localPosition += Time.deltaTime * (new Vector3(moveVal.x, moveVal.y, 0) * speed);
-
-
-        this.transform.Rotate(new Vector3(0.0f, DeltaPointer.x, 0f) * lookSpeed, Space.World);
-        this.transform.Rotate(new Vector3(-DeltaPointer.y, 0.0f, 0f) * lookSpeed, Space.Self);
-
     }
 
     private void FixedUpdate()
@@ -72,39 +65,32 @@ public class PlayerShip : MonoBehaviour
         
         if (thrusting)
         {
-            rb.AddForce(this.transform.forward * thrustSpeed);
+            Debug.Log("Im i being pressed");
+            transform.position += Time.deltaTime * (transform.forward * speed); // X and Y Movement ONLY
+            //rb.AddForce(transform.forward * thrustSpeed * Time.deltaTime, ForceMode.Force);
         }
-        
+
+        if (turning)
+        {
+
+            Debug.Log("im i being pressed");
+            transform.Rotate(new Vector3(0, Input.GetAxisRaw("Horizontal") * turnSpeed, 0));
+        }
+
     }
 
     public void Shoot()
     {
         Instantiate(Ball, ShootPoint.position, ShootPoint.rotation);
-        
-        
     }
-
-
-    public void OnLook(InputValue Value)
-    {
-        //Delta reads the difference between positions of the mouse, in other words how much it moved.
-        DeltaPointer = Value.Get<Vector2>();
-    }
-
 
     public void OnMove(InputValue Value)//new movement input
     {
         moveVal = Value.Get<Vector2>();
     }
+    
 
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Player.transform.position = playerSpawnPoint.position;
-        }
-    }
 
 }

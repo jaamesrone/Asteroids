@@ -233,11 +233,12 @@ GameObject:
   m_Component:
   - component: {fileID: 494976}
   - component: {fileID: 5444550}
-  - component: {fileID: 6788503996706718989}
-  - component: {fileID: 3894213654177271934}
+  - component: {fileID: 11425652}
+  - component: {fileID: 5593948303896539221}
+  - component: {fileID: 3108249704100618424}
   m_Layer: 0
   m_Name: Asteroid 1
-  m_TagString: Large
+  m_TagString: Medium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,8 +251,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.018404, y: -0.021975, z: 0.017328}
+  m_LocalScale: {x: 0.55107, y: 0.55107, z: 0.55107}
   m_Children:
   - {fileID: 488002}
   m_Father: {fileID: 0}
@@ -269,11 +270,24 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6788503996706718989
+--- !u!114 &11425652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a718c138b20419b499c3d92b17e6ff7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tumble: 0.25
+--- !u!114 &5593948303896539221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,8 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bd19b9d2ba1154e9a4a96bdadba663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tumble: 0.25
---- !u!135 &3894213654177271934
+--- !u!135 &3108249704100618424
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +310,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.76
+  m_Radius: 0.79
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &176588
 GameObject:

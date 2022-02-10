@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public int score;
     public TextMeshProUGUI scoreText;
-
+    public GameObject Player;
+    public Transform playerSpawnPoint;
     public static GameManager Instance;
 
     private void Awake()
@@ -37,4 +38,10 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score : " + score.ToString();
 
     }
+    public void RespawnShip()
+    {
+        Player.transform.position = playerSpawnPoint.position;
+
+    }
+    
 }

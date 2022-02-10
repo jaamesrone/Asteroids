@@ -6,10 +6,7 @@ using UnityEngine;
 public class AsteroidSpeed : MonoBehaviour
 {
 [SerializeField]
-    private float tumble;
     
-
-
     private const float SPEED = 2f;
     private Vector3 direction;
     void Start()
@@ -20,16 +17,13 @@ public class AsteroidSpeed : MonoBehaviour
     void Update()
     {
         transform.position += direction * SPEED * Time.deltaTime;
-        GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * tumble;
-        
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Destroy(other.gameObject);
+            GameManager.Instance.RespawnShip();
         }
     }
 }
