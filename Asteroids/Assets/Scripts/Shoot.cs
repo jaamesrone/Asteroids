@@ -4,46 +4,26 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-public float speed;
-public Rigidbody rb;
-    public int score;
+    public float speed;
+    public Rigidbody rb;
+    public float DestroyAfterSeconds = 3f;
 
 
 void Start()
 {
-    rb.velocity = transform.forward * speed;
+    rb.velocity = transform.forward * speed; 
 }
-     
 
-    private void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-      
-    }
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            Destroy(this.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Boundary"))
+        {
+            Destroy(this.gameObject);
+        }
 
- 
-     private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Small")
-        {
-            Debug.Log("im i hitting");
-            Destroy(other.gameObject);
-            score += 50;
-            GameManager.Instance.SmallScore();
-        }
-        if (other.gameObject.tag == "Medium")
-        {
-            Debug.Log("im i hitting");
-            Destroy(other.gameObject);
-            score += 25;
-            GameManager.Instance.MediumScore();
-        }
-        if (other.gameObject.tag == "Large")
-        {
-            Debug.Log("im i hitting");
-            Destroy(other.gameObject);
-            score += 10;
-            GameManager.Instance.LargeScore();
-        }
     }
-    
 }
